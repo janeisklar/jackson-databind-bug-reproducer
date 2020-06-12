@@ -1,0 +1,44 @@
+openapi: "3.0.0"
+info:
+  description: Test API
+  version: "1.0.0"
+  title: Test API
+paths:
+  /test:
+    put:
+      summary: Sample
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetInSetter'
+      responses:
+        '200':
+          description: created ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetInGetter'
+        '201':
+          description: created ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsInGetter'
+components:
+  schemas:
+    SetInSetter:
+      type: object
+      properties:
+        settlementDate:
+          type: string
+    GetInGetter:
+      type: object
+      properties:
+        getaways:
+          type: string
+    IsInGetter:
+      type: object
+      properties:
+        island:
+          type: boolean
